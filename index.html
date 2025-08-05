@@ -1,28 +1,49 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>Cerdito</title>
-<meta charset="utf-8">
-<meta name="description" content="Modelo 3D">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link type="text/css" href="./styles.css" rel="stylesheet"/>
+  <title>Cerdito 3D</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Modelo 3D de un cerdito en AR">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 
-<!-- MODEL VIEWER -->
-<model-viewer id="myModel"
-src="CERDITO_2025.glb"
-ar
-ar-modes="scene-viewer webxr quick-look"
-camera-controls
-tone-mapping="neutral"
-shadow-intensity="1">
+  <!-- MODEL-VIEWER -->
+  <model-viewer
+    id="myModel"
+    src="CERDITO_2025.glb"
+    ios-src="CERDITO_2025.usdz"  <!-- ✅ archivo usdz para iOS -->
+    ar
+    ar-modes="scene-viewer webxr quick-look"
+    camera-controls
+    tone-mapping="neutral"
+    shadow-intensity="1"
+    auto-rotate
+    alt="Modelo 3D de un cerdito"
+    style="width: 100%; height: 100vh;"
+  >
+    <!-- Barra de progreso (opcional) -->
+    <div class="progress-bar hide" slot="progress-bar">
+      <div class="update-bar"></div>
+    </div>
 
-<div class="progress-bar hide" slot="progress-bar">
-<div class="update-bar"></div>
-</div>
+    <!-- Botón para activar AR -->
+    <button slot="ar-button" id="ar-button">
+      Ver en tu espacio
+    </button>
 
-<!-- Librería Model Viewer -->
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    <!-- Imagen opcional que indica cómo mover el teléfono -->
+    <div id="ar-prompt">
+      <img src="ar_hand_prompt.png" alt="Mueve tu teléfono para visualizar en AR">
+    </div>
+  </model-viewer>
+
+  <!-- Script adicional (si usas lógica personalizada) -->
+  <script src="./script.js"></script>
+
+  <!-- Librería oficial de model-viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
 </body>
 </html>
