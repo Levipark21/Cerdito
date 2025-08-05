@@ -1,47 +1,28 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>Modelo 3D en AR</title>
-    <meta charset="utf-8">
-    <meta name="description" content="Modelo 3D con soporte AR para iOS y Android">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./styles.css">
-  </head>
-  <body>
-    <!-- model-viewer para AR en web, iOS y Android -->
-    <model-viewer
-      src="CERDITO_2025.glb"
-      ar
-      ar-modes="scene-viewer webxr quick-look"
-      camera-controls
-      tone-mapping="neutral"
-      poster="poster.webp"
-      shadow-intensity="1"
-      auto-rotate
-      environment-image="neutral"
-      alt="Modelo 3D de un cerdito"
-      style="width: 100%; height: 100vh;"
-    >
-      <!-- Barra de progreso -->
-      <div class="progress-bar hide" slot="progress-bar">
-        <div class="update-bar"></div>
-      </div>
+<head>
+<title>Cerdito</title>
+<meta charset="utf-8">
+<meta name="description" content="Modelo 3D">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" href="./styles.css" rel="stylesheet"/>
+</head>
+<body>
 
-      <!-- Botón para AR -->
-      <button slot="ar-button" id="ar-button">
-        Ver en tu espacio
-      </button>
+<!-- MODEL VIEWER -->
+<model-viewer id="myModel"
+src="CERDITO_2025.glb"
+ar
+ar-modes="scene-viewer webxr quick-look"
+camera-controls
+tone-mapping="neutral"
+shadow-intensity="1">
 
-      <!-- Indicador visual de AR -->
-      <div id="ar-prompt">
-        <img src="ar_hand_prompt.png" alt="Mueve tu teléfono para visualizar el modelo en AR">
-      </div>
-    </model-viewer>
+<div class="progress-bar hide" slot="progress-bar">
+<div class="update-bar"></div>
+</div>
 
-    <!-- Script JS adicional (opcional) -->
-    <script src="script.js"></script>
-
-    <!-- Cargar model-viewer desde CDN -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
-  </body>
+<!-- Librería Model Viewer -->
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+</body>
 </html>
