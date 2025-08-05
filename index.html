@@ -1,86 +1,32 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>Cerdito 3D</title>
+  <title>CERDITO</title>
   <meta charset="utf-8">
-  <meta name="description" content="Modelo 3D de un cerdito en AR">
+  <meta name="description" content="Modelo 3D con variantes">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    model-viewer {
-      width: 100%;
-      height: 100vh;
-    }
-
-    /* ✅ Botón AR bien visible y centrado */
-    #ar-button {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 12px 24px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      font-size: 16px;
-      cursor: pointer;
-      z-index: 10;
-    }
-
-    #ar-button:active {
-      background-color: #0056b3;
-    }
-
-    /* Opcional: imagen de guía AR */
-    #ar-prompt {
-      position: absolute;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 5;
-    }
-
-    #ar-prompt img {
-      width: 50px;
-      height: auto;
-      opacity: 0.8;
-    }
-  </style>
+  <link type="text/css" href="./styles.css" rel="stylesheet"/>
 </head>
 <body>
 
-<model-viewer
-  src="CERDITO_2025.glb"
-  ios-src="CERDITO_2025.usdz"
-  ar
-  ar-modes="scene-viewer webxr quick-look"
-  camera-controls
-  auto-rotate
-  tone-mapping="neutral"
-  shadow-intensity="1"
-  alt="Modelo 3D de un cerdito"
->
-  <!-- ✅ Botón para activar AR, ahora centrado -->
-  <button slot="ar-button" id="ar-button">
-    View in your space
-  </button>
+  <!-- MODEL VIEWER -->
+  <model-viewer id="myModel"
+    src="CERDITO_2025.glb"
+    ar
+    ar-modes="scene-viewer webxr quick-look"
+    camera-controls
+    tone-mapping="neutral"
+    shadow-intensity="1">
 
-  <!-- Icono opcional -->
-  <div id="ar-prompt">
-    <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="Move your phone">
-  </div>
-</model-viewer>
+    <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
 
-<!-- Librería oficial model-viewer -->
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <!-- Script de variantes -->
+  <script src="script.js"></script>
 
+  <!-- Librería Model Viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 </body>
 </html>
 
